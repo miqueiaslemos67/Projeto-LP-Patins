@@ -65,7 +65,13 @@
                 COMPRAR AGORA
               </a>
 
-              <a class="video-action" href="#">
+              <button
+                class="video-action"
+                type="button"
+                aria-label="Abrir demonstração"
+                aria-haspopup="dialog"
+                aria-controls="demo-modal"
+              >
                 <span class="btn-secondary" aria-hidden="true">
                   <img
                     src="./assets/icons/play.svg"
@@ -75,7 +81,7 @@
                   />
                 </span>
                 <span class="link-button">VEJA EM AÇÃO</span>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -216,6 +222,44 @@
         </div>
       </section>
     </main>
+
+    <div class="demo-overlay" id="demo-overlay" hidden>
+      <section
+        class="demo-modal"
+        id="demo-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="demo-modal-title"
+      >
+        <button
+          class="demo-modal__close"
+          id="demo-modal-close"
+          type="button"
+          aria-label="Fechar demonstração"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <p class="demo-modal__kicker">SNITAP EXPERIENCE</p>
+        <h3 class="demo-modal__title" id="demo-modal-title">Veja em ação</h3>
+        <p class="demo-modal__text">
+          Uma prévia da experiência Snitap em movimento, com foco em energia,
+          estilo e performance.
+        </p>
+
+        <div class="demo-modal__media">
+          <iframe
+            id="demo-video"
+            title="Demonstração Snitap"
+            data-src="https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+    </div>
 
     <footer class="site-footer">
       <div class="container footer-content">
