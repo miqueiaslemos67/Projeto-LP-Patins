@@ -1,0 +1,186 @@
+/* Componentes reutilizáveis */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.75rem;
+  padding-inline: 1.25rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: var(--yellow);
+  color: var(--black);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.28s var(--ease-smooth), box-shadow 0.28s var(--ease-smooth), filter 0.28s var(--ease-smooth);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.012);
+  box-shadow: 0 14px 28px rgba(17, 17, 17, 0.18);
+  filter: saturate(1.05);
+}
+
+.btn-secondary {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 14px rgba(17, 17, 17, 0.12);
+  transition: transform 0.28s var(--ease-smooth), box-shadow 0.28s var(--ease-smooth), background-color 0.28s var(--ease-smooth);
+}
+
+.video-action:hover .btn-secondary,
+.btn-secondary:hover {
+  transform: translateY(-2px) scale(1.025);
+  background-color: #fcfcfc;
+  box-shadow: 0 12px 24px rgba(17, 17, 17, 0.18);
+}
+
+.link-button {
+  position: relative;
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--black);
+  line-height: 1.25;
+  transition: color 0.26s var(--ease-smooth);
+}
+
+.link-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.18rem;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.26s var(--ease-smooth);
+}
+
+.link-button:hover {
+  color: var(--cyan);
+}
+
+.link-button:hover::after,
+.link-button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.cart-button {
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.28s var(--ease-smooth), background-color 0.28s var(--ease-smooth), box-shadow 0.28s var(--ease-smooth);
+}
+
+.cart-button img {
+  width: 48px;
+  height: 48px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -0.15rem;
+  right: -0.2rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--black);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 4px 10px rgba(17, 17, 17, 0.18);
+  pointer-events: none;
+}
+
+.cart-button:hover {
+  transform: translateY(-1px);
+  background: rgba(25, 194, 216, 0.1);
+  box-shadow: 0 8px 18px rgba(17, 17, 17, 0.1);
+}
+
+.card-image {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 13rem;
+  box-shadow: 0 8px 18px rgba(17, 17, 17, 0.1);
+  isolation: isolate;
+  transition: transform 0.32s var(--ease-smooth), box-shadow 0.32s var(--ease-smooth);
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.42s var(--ease-smooth), filter 0.42s var(--ease-smooth);
+}
+
+.card-image:hover img {
+  transform: scale(1.055);
+  filter: brightness(1.04) contrast(1.04);
+}
+
+.card-image:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 28px rgba(17, 17, 17, 0.16);
+}
+
+.social-button {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid transparent;
+  background: transparent;
+  transition: transform 0.26s var(--ease-smooth), background-color 0.26s var(--ease-smooth), border-color 0.26s var(--ease-smooth);
+}
+
+.social-button:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--yellow) 88%, #ffffff 12%);
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.link-button:focus-visible,
+.cart-button:focus-visible,
+.social-button:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .btn-primary {
+    height: 2.6rem;
+    padding-inline: 1rem;
+  }
+
+  .link-button {
+    font-size: 0.59rem;
+  }
+
+  .card-image {
+    min-height: 9.8rem;
+  }
+}

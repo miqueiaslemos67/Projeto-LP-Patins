@@ -1,0 +1,158 @@
+/* Entrada da imagem do patins da direita para a esquerda */
+@keyframes skateRevealFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(230px) translateY(18px) scale(0.958);
+  }
+  22% {
+    opacity: 0;
+    transform: translateX(170px) translateY(14px) scale(0.968);
+  }
+  64% {
+    opacity: 0.86;
+    transform: translateX(42px) translateY(4px) scale(0.993);
+  }
+  86% {
+    opacity: 1;
+    transform: translateX(-2px) translateY(0) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+}
+
+@keyframes heroFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-0.35deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* Giro elegante do simbolo no topo */
+@keyframes symbolSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(352deg);
+  }
+  100% {
+    transform: rotate(346deg);
+  }
+}
+
+/* Entrada/saída da palavra dinâmica */
+@keyframes wordOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.985);
+  }
+}
+
+@keyframes wordIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Marquee contínuo */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.floating {
+  animation: heroFloat 6.2s ease-in-out 1.95s infinite;
+}
+
+.hero-skate {
+  animation: skateRevealFromRight 2.1s cubic-bezier(0.2, 0.86, 0.22, 1) both;
+}
+
+.dynamic-word.is-exit {
+  animation: wordOut 0.32s ease forwards;
+}
+
+.dynamic-word.is-enter {
+  animation: wordIn 0.32s ease forwards;
+}
+
+.ticker__track {
+  animation: marquee 19s linear infinite;
+}
+
+.gallery-grid .card-image.reveal-init {
+  opacity: 0;
+  transform: translateY(38px) scale(0.98);
+  filter: blur(4px);
+  transition: opacity 1.45s var(--ease-smooth), transform 1.45s var(--ease-smooth), filter 1.45s var(--ease-smooth);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.gallery-grid .card-image.reveal-init.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.btn-primary,
+.btn-secondary,
+.card-image img,
+.link-button,
+.social-button,
+.cart-button {
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating,
+  .ticker__track,
+  .hero-skate,
+  .site-header .brand--symbol:hover .brand-symbol,
+  .site-header .brand--symbol:focus-visible .brand-symbol {
+    animation: none !important;
+  }
+
+  .dynamic-word.is-exit,
+  .dynamic-word.is-enter {
+    animation: none !important;
+  }
+
+  .card-image,
+  .card-image img,
+  .btn-primary,
+  .btn-secondary,
+  .social-button,
+  .cart-button,
+  .link-button,
+  .link-button::after {
+    transition: none !important;
+  }
+
+  .gallery-grid .card-image.reveal-init,
+  .gallery-grid .card-image.reveal-init.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
